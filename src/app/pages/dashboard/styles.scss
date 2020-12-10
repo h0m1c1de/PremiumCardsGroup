@@ -1,0 +1,19 @@
+.wrap {
+  background-color: #fafafa;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px;
+}
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0;
+}
+
+.form {
+  width: 100%;
+}

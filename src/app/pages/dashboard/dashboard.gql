@@ -1,0 +1,33 @@
+mutation ADD($sku: SKU!, $quantity: Int!, $personalMessage: Boolean!) {
+  addPackageToCart(sku: $sku, quantity: $quantity, personalMessage: $personalMessage) {
+    id
+    items {
+      id
+      price
+      quantity
+    }
+  }
+}
+
+
+mutation UPDATE($cartItemId: ID!, $quantity: Int!, $personalMessage: Boolean!) {
+  updatePackageInCart(cartItemId: $cartItemId, quantity: $quantity, personalMessage: $personalMessage) {
+    id
+    items {
+      id
+      price
+      quantity
+    }
+  }
+}
+
+mutation REMOVE($cartItemId: ID!) {
+  removeItemFromCart(cartItemId: $cartItemId) {
+    id
+    items {
+      id
+      price
+      quantity
+    }
+  }
+}
