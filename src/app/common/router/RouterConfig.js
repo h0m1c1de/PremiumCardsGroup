@@ -1,4 +1,4 @@
-import { createContext, Component } from 'react'
+import React, { Component } from 'react'
 
 const RouterConfigContext = React.createContext({})
 

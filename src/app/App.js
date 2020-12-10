@@ -12,7 +12,7 @@ function AppProvider({ store, history }) {
   return (
     <Provider store={store}>
       <ApolloProvider client={apolloClient}>
-        <Router history={history} routes={routes}/>
+        <Router history={history} routes={routes} />
       </ApolloProvider>
     </Provider>
   )

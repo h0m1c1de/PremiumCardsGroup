@@ -17,7 +17,7 @@ Dashboard.defaultProps = {
 }
 
 export default function Dashboard({ onSubmit, items, handleSetCurrent, initialValues, handleRemove }) {
-  const f = (
+  const renderForm = (
     <Form
       onSubmit={onSubmit}
       validate={validate}
@@ -41,11 +41,11 @@ export default function Dashboard({ onSubmit, items, handleSetCurrent, initialVa
           <div key={item.id} className={styles.item}>
             <h3>Package {index + 1}</h3>
             <div>Price: {item.price * item.quantity}</div>
-            {initialValues.id === item.id ? f : (<button type="button" onClick={handleSetCurrent(item)}>Modify</button>)}
+            {initialValues.id === item.id ? renderForm : (<button type="button" onClick={handleSetCurrent(item)}>Modify</button>)}
           </div>
         )
       })}
-      {!initialValues.id && f}
+      {!initialValues.id && renderForm}
     </div>
   )
 }

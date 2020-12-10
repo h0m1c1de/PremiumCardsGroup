@@ -1,10 +1,12 @@
 import { useMutation } from '@apollo/react-hooks'
 import { useCallback, useState } from 'react'
+
 import Dashboard from './Dashboard'
+import { getValue } from './utils'
 
 import { ADD, UPDATE, REMOVE } from './dashboard.gql'
 
-function DashboardContainer(props) {
+export default function DashboardContainer(props) {
   const [current, setCurrent] = useState(null)
   const [items, setItems] = useState([])
   const [add] = useMutation(ADD)
@@ -27,7 +29,7 @@ function DashboardContainer(props) {
     })
   }, [add, update, setItems, setCurrent, current])
 
-  const handleSetCurrent = useCallback((item) => { return () => setCurrent(item) }, [setCurrent])
+  const handleSetCurrent = useCallback((item) => () => setCurrent(item), [setCurrent])
 
   const handleRemove = useCallback((form) => {
     return () => {
@@ -47,14 +49,4 @@ function DashboardContainer(props) {
       initialValues={current ? { ...current, value: +current.price } : {}}
     />
   )
-}
-
-export default DashboardContainer
-
-function getValue(value) {
-  let res = (value * 100).toString()
-  while(res.length < 5) {
-    res = '0' + res
-  }
-  return res
 }
